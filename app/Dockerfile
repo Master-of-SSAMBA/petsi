@@ -18,8 +18,9 @@ RUN pip install onnxruntime==1.19.0
 
 # Install KoBERT-related packages without dependencies
 RUN pip install --no-cache-dir \
-    git+https://github.com/SKTBrain/KoBERT.git@master --no-deps \
-    git+https://github.com/monologg/KoBERT-Transformers.git
+    git+https://github.com/SKTBrain/KoBERT.git@master \
+    git+https://github.com/monologg/KoBERT-Transformers.git \
+    git+https://github.com/monologg/kobert_tokenizer.git
 
 # Copy the entire app directory
 COPY app/ .
