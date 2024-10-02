@@ -12,6 +12,9 @@ COPY app/requirements.txt .
 
 # Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir \
+    git+https://github.com/SKTBrain/KoBERT.git@master \
+    git+https://github.com/monologg/KoBERT-Transformers.git
 
 # Copy the entire app directory
 COPY app/ .
