@@ -13,3 +13,5 @@ tqdm
 sentencepiece
 fastapi
 uvicorn
+kobert-transformers
+kobert-tokenizer
