@@ -16,9 +16,10 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Install KoBERT-specific dependencies
-RUN pip install transformers==4.8.2 \
-    sentencepiece==0.1.91 \
-    'git+https://github.com/SKTBrain/KoBERT.git#egg=kobert_tokenizer&subdirectory=kobert_hf'
+RUN pip install --no-cache-dir \
+    transformers==4.30.2 \
+    sentencepiece==0.1.99
+RUN pip install git+https://github.com/SKTBrain/KoBERT.git@master
 
 # Copy the application code
 COPY . .
