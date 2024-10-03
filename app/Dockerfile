@@ -18,8 +18,9 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 # Install the required Python packages
-RUN pip install --upgrade pip setuptools wheel \
-    && pip install torch==1.10.1 transformers==4.8.2 sentencepiece==0.1.91
+RUN pip install --no-cache-dir torch==1.10.1 \
+    && pip install --no-cache-dir transformers==4.8.2 \
+    && pip install --no-cache-dir sentencepiece==0.1.91
 
 # Install KoBERT from GitHub
 RUN pip install 'git+https://github.com/SKTBrain/KoBERT.git#egg=kobert_tokenizer&subdirectory=kobert_hf'
