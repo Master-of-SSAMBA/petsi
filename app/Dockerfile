@@ -25,7 +25,7 @@ RUN pip install --upgrade pip setuptools wheel \
 RUN pip install 'git+https://github.com/SKTBrain/KoBERT.git#egg=kobert_tokenizer&subdirectory=kobert_hf'
 
 # Copy the requirements file
-COPY requirements.txt .
+COPY app/requirements.txt .
 
 # Install additional dependencies specified in requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
