@@ -13,13 +13,8 @@ COPY app/requirements.txt .
 # Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Install onnxruntime
-RUN pip install onnxruntime==1.19.0
-
 # Install KoBERT-related packages without dependencies
-RUN pip install --no-deps git+https://github.com/SKTBrain/KoBERT.git@master
-RUN pip install --no-deps git+https://github.com/monologg/KoBERT-Transformers.git
-RUN pip install --no-deps git+https://github.com/monologg/kobert_tokenizer.git
+pip install git+https://git@github.com/SKTBrain/KoBERT.git@master
 
 # Copy the entire app directory
 COPY app/ .
