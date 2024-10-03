@@ -14,7 +14,7 @@ COPY app/requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Install KoBERT-related packages without dependencies
-pip install git+https://git@github.com/SKTBrain/KoBERT.git@master
+RUN pip install git+https://git@github.com/SKTBrain/KoBERT.git@master
 
 # Copy the entire app directory
 COPY app/ .
