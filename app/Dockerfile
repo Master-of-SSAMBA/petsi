@@ -1,5 +1,5 @@
 # Use PyTorch base image
-FROM pytorch/pytorch:2.0.0-cuda11.7-cudnn8-runtime
+FROM python:3.9-slim
 
 # Set working directory
 WORKDIR /
@@ -14,12 +14,6 @@ COPY requirements.txt .
 
 # Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
-
-# Install KoBERT-specific dependencies
-RUN pip install --no-cache-dir \
-    transformers==4.30.2 \
-    sentencepiece==0.1.99
-RUN pip install git+https://github.com/SKTBrain/KoBERT.git@master
 
 # Copy the application code
 COPY . .
