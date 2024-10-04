@@ -5,7 +5,12 @@
 # pip install tqdm
 # pip install sentencepiece
 
-fastapi==0.68.1
-uvicorn==0.15.0
-pydantic==1.8.2
-numpy==1.21.2
+fastapi
+transformers
+torch
+pandas
+scikit-learn
+tqdm
+sentencepiece
+uvicorn[standard]
+git+https://github.com/SKTBrain/KoBERT.git#egg=kobert_tokenizer&subdirectory=kobert_hf
