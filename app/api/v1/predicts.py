@@ -16,5 +16,5 @@ async def predict_categories(login_info: LoginInfo):
     for item in batch.items:
         for product in item['products']:
             category = predict_category(product['name'])
-            results.append({"title": product['name'], "detail": product['option'], "purchasedAt" : item['date'].replace('.', '-'), "quantity" : product['quantity'], "cost" : int(product['price'].replace(',', '').replace('원', '')), "img" : product['img'], "category": category})
+            results.append({"title": product['name'], "detail": product['option'], "purchasedAt" : item['date'].replace('.', '-'), "quantity" : int(product['quantity'].replae('개', '')), "cost" : int(product['price'].replace(',', '').replace('원', '')), "img" : product['img'], "category": category})
     return results
