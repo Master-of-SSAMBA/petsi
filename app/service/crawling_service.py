@@ -5,6 +5,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import TimeoutException
 from webdriver_manager.chrome import ChromeDriverManager
 from model.product import LoginInfo
 
@@ -12,22 +13,22 @@ import time
 
 router = APIRouter()
 
-def setup_driver():
-    chrome_options = Options()
-    chrome_options.add_argument("--headless")
-    chrome_options.add_argument("--no-sandbox")
-    chrome_options.add_argument("--disable-dev-shm-usage")
-    
-    service = Service(ChromeDriverManager().install())
-    return webdriver.Chrome(service=service, options=chrome_options)
-
-# def setup_driver(headless=False):
+# def setup_driver():
 #     chrome_options = Options()
-#     if headless:
-#         chrome_options.add_argument("--headless")
+#     chrome_options.add_argument("--headless")
+#     chrome_options.add_argument("--no-sandbox")
+#     chrome_options.add_argument("--disable-dev-shm-usage")
     
 #     service = Service(ChromeDriverManager().install())
 #     return webdriver.Chrome(service=service, options=chrome_options)
+
+def setup_driver(headless=False):
+    chrome_options = Options()
+    if headless:
+        chrome_options.add_argument("--headless")
+    
+    service = Service(ChromeDriverManager().install())
+    return webdriver.Chrome(service=service, options=chrome_options)
 
 def click_more_button(driver):
     try:
@@ -83,7 +84,7 @@ def scroll_and_click_more(driver):
 
 def kakao_login(login_url, order_url, username, password):
     # driver = setup_driver()
-    driver = setup_driver()
+    driver = setup_driver(headless=False)
 
     try:
         print('메인 페이지 열기')
@@ -119,6 +120,19 @@ def kakao_login(login_url, order_url, username, password):
             EC.element_to_be_clickable((By.CSS_SELECTOR, 'button.btn_g.highlight.submit'))
         )
         login_button.click()
+
+        time.sleep(1)
+
+        # try:
+        #     # 에러 메시지 확인 (0.5초 동안 대기)
+        #     WebDriverWait(driver, 1).until(
+        #         EC.presence_of_element_located((By.CSS_SELECTOR, 'p.desc_error'))
+        #     )
+        #     print('로그인 실패: 아이디 또는 비밀번호가 올바르지 않습니다.')
+        #     raise Exception('로그인 실패')
+        # except TimeoutException:
+        #     # 에러 메시지가 없으면 로그인 성공으로 간주
+        #     print('로그인 성공')
 
         print('로그인 완료 대기')
         WebDriverWait(driver, 60).until(EC.url_contains('pet-friends.co.kr'))
