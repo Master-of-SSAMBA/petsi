@@ -3,6 +3,7 @@ from torch import nn
 import json
 from transformers import BertModel
 from kobert_tokenizer import KoBERTTokenizer
+import asyncio
 
 # 모델 및 토크나이저 로드
 tokenizer = KoBERTTokenizer.from_pretrained('skt/kobert-base-v1')
@@ -35,7 +36,7 @@ model.load_state_dict(torch.load('./ai/pet_product_classifier_final.pth', map_lo
 model.to(device)
 model.eval()
 
-def predict_category(text):
+def sync_predict_category(text):
     encoding = tokenizer.encode_plus(
         text,
         add_special_tokens=True,
@@ -57,3 +58,5 @@ def predict_category(text):
     predicted_category = list(category_to_id.keys())[list(category_to_id.values()).index(preds.item())]
     return predicted_category
 
+async def predict_category(text):
+    return await asyncio.to_thread(sync_predict_category, text)
