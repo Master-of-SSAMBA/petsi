@@ -13,22 +13,22 @@ import time
 
 router = APIRouter()
 
-# def setup_driver():
-#     chrome_options = Options()
-#     chrome_options.add_argument("--headless")
-#     chrome_options.add_argument("--no-sandbox")
-#     chrome_options.add_argument("--disable-dev-shm-usage")
-    
-#     service = Service(ChromeDriverManager().install())
-#     return webdriver.Chrome(service=service, options=chrome_options)
-
-def setup_driver(headless=False):
+def setup_driver():
     chrome_options = Options()
-    if headless:
-        chrome_options.add_argument("--headless")
+    chrome_options.add_argument("--headless")
+    chrome_options.add_argument("--no-sandbox")
+    chrome_options.add_argument("--disable-dev-shm-usage")
     
     service = Service(ChromeDriverManager().install())
     return webdriver.Chrome(service=service, options=chrome_options)
+
+# def setup_driver(headless=False):
+#     chrome_options = Options()
+#     if headless:
+#         chrome_options.add_argument("--headless")
+    
+#     service = Service(ChromeDriverManager().install())
+#     return webdriver.Chrome(service=service, options=chrome_options)
 
 def click_more_button(driver):
     try:
@@ -83,8 +83,8 @@ def scroll_and_click_more(driver):
     print("무한 스크롤 로딩 완료")
 
 def kakao_login(login_url, order_url, username, password):
-    # driver = setup_driver()
-    driver = setup_driver(headless=False)
+    driver = setup_driver()
+    # driver = setup_driver(headless=False)
 
     try:
         print('메인 페이지 열기')
