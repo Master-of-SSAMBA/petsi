@@ -45,11 +45,18 @@ public class UserService {
     @Transactional
     public void signup(SignupRequestDto signupRequestDto) {
         isValidSignup(signupRequestDto);
-        String userKey = finApiService.addMember(signupRequestDto.getEmail());
+        String userKey = finApiService.addMember(generateRandomEmail());
         User newUser = SignupRequestDto.toEntity(signupRequestDto, userKey);
         userRepository.save(newUser);
         keycloakService.registerUserInKeycloak(
                 RegisterKeycloakUserRequestDto.create(signupRequestDto, newUser.getUserId(), userKey));
+    }
+
+    public static String generateRandomEmail() {
+        String uuid = UUID.randomUUID().toString().replace("-", "");
+        String shortUuid = uuid.substring(0, 10);
+        String domain = "@gma.com";
+        return shortUuid + domain;
     }
 
     @Transactional
