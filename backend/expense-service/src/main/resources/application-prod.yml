@@ -1,0 +1,60 @@
+server:
+  port: 9005 #실행할 포트로 설정
+spring:
+  application:
+    name: expense-service #현재 서비스 이름으로 변경
+  datasource:
+    #account 부분을 현재 서비스 이름으로 변경
+    url: jdbc:mysql://mysql_expense_service:3306/petsi_expense?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+  #차후 설정 예정
+  flyway:
+    enabled: true
+    locations : classpath:db/migration
+    baseline-on-migrate: true
+  jpa:
+    database: mysql
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+    show-sql: false
+    hibernate:
+      ddl-auto: none
+      format_sql: true
+  data:
+    redis:
+      host: j11a403.p.ssafy.io
+      port: 6382
+      password: ${DB_PASSWORD}
+      timeout: 5000
+
+#swagger : account 부분 서비스로 변경
+springdoc:
+  swagger-ui:
+    path: /api/v1/expense/swagger-ui.html
+
+#로그 관련
+logging:
+  level:
+    org.hibernate: DEBUG
+    org.springframework: DEBUG
+
+cloud:
+  aws:
+    s3:
+      bucket: petsi-images-bucket
+    stack.auto: false
+    region.static: ap-northeast-2
+    credentials:
+      access-key: ${S3_ACCESS_KEY}
+      secret-key: ${S3_SECRET_KEY}
+
+# Eureka 서버 주소
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://eureka-service:8761/eureka/

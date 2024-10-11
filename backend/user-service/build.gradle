@@ -1,0 +1,71 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.3.4'
+	id 'io.spring.dependency-management' version '1.1.6'
+}
+
+group = 'com.ssamba.petsi'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(17)
+	}
+}
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.flywaydb:flyway-core'
+	implementation 'org.flywaydb:flyway-mysql'
+	implementation group: 'org.springdoc', name: 'springdoc-openapi-starter-webmvc-ui', version: '2.2.0'
+	implementation 'org.keycloak:keycloak-spring-boot-starter:25.0.3'
+	implementation 'org.keycloak:keycloak-admin-client:25.0.3'
+	compileOnly 'org.projectlombok:lombok'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	runtimeOnly 'com.mysql:mysql-connector-j'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+	// https://mvnrepository.com/artifact/software.amazon.awssdk/s3
+	implementation group: 'software.amazon.awssdk', name: 's3', version: '2.27.17'
+
+	//eureka
+	implementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-netflix-eureka-client', version: '4.0.3'
+	implementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-openfeign', version: '4.1.3'
+
+	//spring-kafka
+	implementation group: 'org.springframework.kafka', name: 'spring-kafka', version: '3.2.3'
+
+	// https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core
+	implementation group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.17.2'
+
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
+
+bootBuildImage {
+	builder = "docker.io/paketobuildpacks/builder-jammy-base"
+	imageName = "petsi/user-service:latest"
+	environment = ["BP_JVM_VERSION": "17"]
+	docker {
+		publishRegistry {
+			username = project.findProperty("registryUsername")
+			password = project.findProperty("registryToken")
+			url = project.findProperty("registryUrl")
+		}
+	}
+}

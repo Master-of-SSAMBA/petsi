@@ -1,0 +1,69 @@
+server:
+  port: 8080 #실행할 포트로 설정
+spring:
+  config:
+    import: optional:file:.env[.properties]
+  application:
+    name: user-service #현재 서비스 이름으로 변경
+  datasource:
+    #로컬에서 사용할 db로 설정, account 부분을 서비스 이름으로 변경
+    url: jdbc:mysql://localhost:3306/petsi_user?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+  flyway:
+    enabled: false #dev에서는 편안한 옵션 선택
+  jpa:
+    database: mysql
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+    show-sql: false
+    hibernate:
+      ddl-auto: create #dev에서는 편안한 옵션 선택
+      format_sql: true
+  fin:
+    api-url: "https://finopenapi.ssafy.io/ssafy/api/v1/member/"
+    api_key: ${FIN_API_KEY}
+  keycloak:
+    realm: petsi
+    auth-server-url: http://localhost:8082
+    resource: user-service
+    credentials:
+      secret: ${USER_KEYCLOAK_SECRET}
+    ssl-required: external
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+##swagger : account 부분 서비스로 변경
+springdoc:
+  swagger-ui:
+    path: /api/v1/user/swagger-ui.html
+
+#로그 관련
+logging:
+  level:
+    org.hibernate: DEBUG
+    org.springframework: DEBUG
+
+cloud:
+  aws:
+    s3:
+      bucket: petsi-images-bucket
+    stack.auto: false
+    region.static: ap-northeast-2
+    credentials:
+      access-key: ${S3_ACCESS_KEY}
+      secret-key: ${S3_SECRET_KEY}
+
+
+# Eureka 서버 주소
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
