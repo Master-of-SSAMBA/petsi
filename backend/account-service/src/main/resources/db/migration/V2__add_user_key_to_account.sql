@@ -1,2 +1,0 @@
-ALTER TABLE account
-    ADD COLUMN user_key VARCHAR(255) NOT NULL;
