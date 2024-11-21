@@ -84,35 +84,54 @@
 ## 🎨 화면 구성
 
 ### 로그인
-<img align='center' src='./docs/로그인.gif' alt='로그인.gif' width='280px'>
+<div align='center'>
+  <img src='./docs/로그인.gif' alt='로그인.gif' width='280px'>
+</div>
 
 ### 펫 등록
-<img align='center' src='./docs/펫 등록.gif' alt='펫 등록' width='280px'>
+<div align='center'>
+  <img src='./docs/펫 등록.gif' alt='펫 등록' width='280px'>
+</div>  
 
 ### 계좌 개설
-<img align='center' src='./docs/계좌 개설.gif' alt='계좌 개설' width='280px'>
+<div align='center'>
+  <img src='./docs/계좌 개설.gif' alt='계좌 개설' width='280px'>
+</div>  
 
 ### 계좌 조회
-<img align='center' src='./docs/계좌 조회.gif' alt='계좌 조회' width='280px'>
+<div align='center'>
+  <img src='./docs/계좌 조회.gif' alt='계좌 조회' width='280px'>
+</div>  
 
 ### 사진 인증
-<img align='center' src='./docs/사진 인증.gif' alt='사진 인증' width='280px'>
+<div align='center'>
+  <img src='./docs/사진 인증.gif' alt='사진 인증' width='280px'>
+</div>  
 
 ### 사진 인증 상세 조회
-<img align='center' src='./docs/사진 인증 상세 조회.gif' alt='사진 인증 상세 조회' width='280px'>
+<div align='center'>
+  <img src='./docs/사진 인증 상세 조회.gif' alt='사진 인증 상세 조회' width='280px'>
+</div>  
 
 ### 소비 내역 등록
-<img align='center' src='./docs/소비 내역 등록.png' alt='소비 내역 등록' width='280px'>
+<div align='center'>
+  <img src='./docs/소비 내역 등록.png' alt='소비 내역 등록' width='280px'>
+</div>  
 
 ### 소비 내역 조회
-<img align='center' src='./docs/소비 내역 조회.gif' alt='소비 내역 조회' width='280px'>
+<div align='center'>
+  <img src='./docs/소비 내역 조회.gif' alt='소비 내역 조회' width='280px'>
+</div>  
 
 ### 일정 생성
-<img align='center' src='./docs/일정 생성.gif' alt='일정 생성' width='280px'>
+<div align='center'>
+  <img src='./docs/일정 생성.gif' alt='일정 생성' width='280px'>
+</div>  
 
 ### 일정 완료
-<img align='center' src='./docs/일정 완료.gif' alt='일정 완료' width='280px'>
-
+<div align='center'>
+  <img src='./docs/일정 완료.gif' alt='일정 완료' width='280px'>
+</div>  
 
 ## 👥 참여 인원 및 역할
 ### 💗TEAM SSAMBA💗
