@@ -102,7 +102,7 @@
 <img src='./docs/사진 인증 상세 조회.gif' alt='사진 인증 상세 조회' width='280px'>
 
 ### 소비 내역 등록
-<img src='./docs/소비 내역 등록.gif' alt='소비 내역 등록' width='280px'>
+<img src='./docs/소비 내역 등록.png' alt='소비 내역 등록' width='280px'>
 
 ### 소비 내역 조회
 <img src='./docs/소비 내역 조회.gif' alt='소비 내역 조회' width='280px'>
