@@ -84,34 +84,34 @@
 ## 🎨 화면 구성
 
 ### 로그인
-<img src='./docs/로그인.gif' alt='로그인.gif' width='280px'>
+<img align='center' src='./docs/로그인.gif' alt='로그인.gif' width='280px'>
 
 ### 펫 등록
-<img src='./docs/펫 등록.gif' alt='펫 등록' width='280px'>
+<img align='center' src='./docs/펫 등록.gif' alt='펫 등록' width='280px'>
 
 ### 계좌 개설
-<img src='./docs/계좌 개설.gif' alt='계좌 개설' width='280px'>
+<img align='center' src='./docs/계좌 개설.gif' alt='계좌 개설' width='280px'>
 
 ### 계좌 조회
-<img src='./docs/계좌 조회.gif' alt='계좌 조회' width='280px'>
+<img align='center' src='./docs/계좌 조회.gif' alt='계좌 조회' width='280px'>
 
 ### 사진 인증
-<img src='./docs/사진 인증.gif' alt='사진 인증' width='280px'>
+<img align='center' src='./docs/사진 인증.gif' alt='사진 인증' width='280px'>
 
 ### 사진 인증 상세 조회
-<img src='./docs/사진 인증 상세 조회.gif' alt='사진 인증 상세 조회' width='280px'>
+<img align='center' src='./docs/사진 인증 상세 조회.gif' alt='사진 인증 상세 조회' width='280px'>
 
 ### 소비 내역 등록
-<img src='./docs/소비 내역 등록.png' alt='소비 내역 등록' width='280px'>
+<img align='center' src='./docs/소비 내역 등록.png' alt='소비 내역 등록' width='280px'>
 
 ### 소비 내역 조회
-<img src='./docs/소비 내역 조회.gif' alt='소비 내역 조회' width='280px'>
+<img align='center' src='./docs/소비 내역 조회.gif' alt='소비 내역 조회' width='280px'>
 
 ### 일정 생성
-<img src='./docs/일정 생성.gif' alt='일정 생성' width='280px'>
+<img align='center' src='./docs/일정 생성.gif' alt='일정 생성' width='280px'>
 
 ### 일정 완료
-<img src='./docs/일정 완료.gif' alt='일정 완료' width='280px'>
+<img align='center' src='./docs/일정 완료.gif' alt='일정 완료' width='280px'>
 
 
 ## 👥 참여 인원 및 역할
