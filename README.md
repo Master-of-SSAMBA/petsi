@@ -78,7 +78,7 @@
 
 ### 3️⃣ ERD
 <div align='center'>
-  <img src='./docs/ERD.png' width='600px'>
+  <img src='./docs/erd.png' width='600px'>
 </div>
 
 ## 🎨 화면 구성
